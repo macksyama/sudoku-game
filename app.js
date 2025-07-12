@@ -42,7 +42,10 @@ class SudokuGame {
     document.getElementById('erase-btn').addEventListener('click', () => this.eraseCell());
     document.getElementById('hint-btn').addEventListener('click', () => this.showHint());
     document.getElementById('newgame-btn').addEventListener('click', () => this.showStartScreen());
-    document.getElementById('complete-newgame').addEventListener('click', () => this.showStartScreen());
+    document.getElementById('complete-newgame').addEventListener('click', () => {
+      document.getElementById('complete-modal').close();
+      this.showStartScreen();
+    });
 
     // モーダル関連
     document.getElementById('rules-btn').addEventListener('click', () => document.getElementById('rules-modal').showModal());
@@ -325,6 +328,12 @@ class SudokuGame {
   }
 
   showStartScreen() {
+    // モーダルを閉じる
+    const completeModal = document.getElementById('complete-modal');
+    if (completeModal.open) {
+      completeModal.close();
+    }
+    
     document.getElementById('start-screen').classList.remove('hidden');
     document.getElementById('game-container').classList.add('hidden');
     this.stopTimer();
