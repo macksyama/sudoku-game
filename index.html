@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>モバイル数独</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- スタート画面 -->
+    <div id="start-screen" class="container flex flex-col items-center justify-center gap-16 py-16">
+      <h1>数独</h1>
+      <p>難易度を選んでスタート</p>
+      <div class="flex flex-col gap-8 w-full">
+        <button class="btn btn--primary btn--full-width" data-difficulty="easy">簡単</button>
+        <button class="btn btn--primary btn--full-width" data-difficulty="medium">普通</button>
+        <button class="btn btn--primary btn--full-width" data-difficulty="hard">難しい</button>
+      </div>
+    </div>
+
+    <!-- ゲーム画面 -->
+    <div id="game-container" class="hidden flex flex-col gap-16 px-16 py-16" style="height:100vh;">
+      <!-- ヘッダー -->
+      <header class="flex justify-between items-center">
+        <h2 id="game-title">数独 - <span id="difficulty-label"></span></h2>
+        <div id="timer" class="status status--info">00:00</div>
+      </header>
+
+      <!-- 数独グリッド -->
+      <div id="sudoku-board" class="board"></div>
+
+      <!-- 数字選択パネル -->
+      <div id="number-panel" class="flex justify-center gap-8"></div>
+
+      <!-- 操作ボタン -->
+      <div class="flex justify-between gap-8">
+        <button id="memo-btn" class="btn btn--secondary btn--full-width">メモモード: オフ</button>
+        <button id="erase-btn" class="btn btn--secondary btn--full-width">消去</button>
+        <button id="hint-btn" class="btn btn--secondary btn--full-width">ヒント</button>
+      </div>
+
+      <!-- フッターメニュー -->
+      <footer class="flex justify-between items-center mt-8">
+        <button id="rules-btn" class="btn btn--outline">ルール</button>
+        <button id="newgame-btn" class="btn btn--primary">新しいゲーム</button>
+        <button id="settings-btn" class="btn btn--outline">設定</button>
+      </footer>
+    </div>
+
+    <!-- ルールモーダル -->
+    <dialog id="rules-modal" class="card">
+      <div class="card__header flex justify-between items-center">
+        <h3>数独のルール</h3>
+        <button class="btn btn--outline" onclick="this.closest('dialog').close()">閉じる</button>
+      </div>
+      <div class="card__body">
+        <p>9x9のグリッドを3x3のブロックに分け、各行・列・ブロックに1-9の数字を一つずつ配置します。</p>
+      </div>
+    </dialog>
+
+    <!-- 設定モーダル -->
+    <dialog id="settings-modal" class="card">
+      <div class="card__header flex justify-between items-center">
+        <h3>設定</h3>
+        <button class="btn btn--outline" onclick="this.closest('dialog').close()">閉じる</button>
+      </div>
+      <div class="card__body">
+        <p>テーマ切り替え</p>
+        <div class="flex gap-8">
+          <button id="light-theme" class="btn btn--secondary">ライト</button>
+          <button id="dark-theme" class="btn btn--secondary">ダーク</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 完成モーダル -->
+    <dialog id="complete-modal" class="card">
+      <div class="card__header flex flex-col items-center gap-8">
+        <h3>おめでとう！</h3>
+        <p>パズルを解きました！</p>
+        <button id="complete-newgame" class="btn btn--primary btn--full-width">新しいゲーム</button>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
