@@ -736,7 +736,59 @@ select.form-control {
   border-radius: var(--radius-base);
 }
 
+/* モバイル対応：数字選択パネル */
+@media (max-width: 480px) {
+  #number-panel {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #number-panel .btn {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-md);
+    flex: 0 0 40px;
+  }
+}
+
+/* さらに小さい画面対応 */
+@media (max-width: 360px) {
+  #number-panel .btn {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-sm);
+    flex: 0 0 36px;
+  }
+}
+
 /* フッター */
 footer {
   width: 100%;
+}
+
+/* モバイル対応：ゲームコンテナ */
+@media (max-width: 480px) {
+  #game-container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+    gap: var(--space-12);
+  }
+  
+  .board {
+    max-width: 320px;
+  }
+}
+
+/* さらに小さい画面対応 */
+@media (max-width: 360px) {
+  #game-container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    gap: var(--space-8);
+  }
+  
+  .board {
+    max-width: 280px;
+  }
 }
