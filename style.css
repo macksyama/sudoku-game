@@ -739,26 +739,36 @@ select.form-control {
 /* モバイル対応：数字選択パネル */
 @media (max-width: 480px) {
   #number-panel {
-    gap: var(--space-4);
-    flex-wrap: wrap;
+    gap: var(--space-2);
+    flex-wrap: nowrap;
     justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
   }
   
   #number-panel .btn {
-    width: 40px;
-    height: 40px;
-    font-size: var(--font-size-md);
-    flex: 0 0 40px;
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-sm);
+    flex: 1;
+    min-width: 0;
   }
 }
 
 /* さらに小さい画面対応 */
 @media (max-width: 360px) {
+  #number-panel {
+    gap: var(--space-1);
+    max-width: 320px;
+  }
+  
   #number-panel .btn {
-    width: 36px;
-    height: 36px;
-    font-size: var(--font-size-sm);
-    flex: 0 0 36px;
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-xs);
+    flex: 1;
+    min-width: 0;
   }
 }
 
@@ -777,6 +787,12 @@ footer {
   
   .board {
     max-width: 320px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .cell {
+    font-size: var(--font-size-xl);
   }
 }
 
@@ -790,5 +806,11 @@ footer {
   
   .board {
     max-width: 280px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .cell {
+    font-size: var(--font-size-lg);
   }
 }
